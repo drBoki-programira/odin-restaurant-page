@@ -1,22 +1,28 @@
 import "./styles.css"
 import createHomeElement from "./home.js"
 import { createMenuElement } from "./menu.js"
+import createAboutElement from "./about.js"
 
-const cont = document.querySelector("#content")
-const homeBtn = document.querySelector("#home")
-const menuBtn = document.querySelector("#menu")
-const aboutBtn = document.querySelector("#about")
+const app = function() {
+    const cont = document.querySelector("#content")
+    const homeBtn = document.querySelector("#home")
+    const menuBtn = document.querySelector("#menu")
+    const aboutBtn = document.querySelector("#about")
 
-homeBtn.addEventListener("click", () => {
-    cont.innerHTML = ""
-    cont.appendChild(createHomeElement())
-})
-menuBtn.addEventListener("click", () => {
-    cont.innerHTML = ""
-    cont.appendChild(createMenuElement())
-})
-aboutBtn.addEventListener("click", () => {
-    cont.innerHTML = ""
-})
+    homeBtn.addEventListener("click", () => {
+        cont.innerHTML = ""
+        cont.appendChild(createHomeElement())
+    })
+    menuBtn.addEventListener("click", () => {
+        cont.innerHTML = ""
+        cont.appendChild(createMenuElement())
+    })
+    aboutBtn.addEventListener("click", () => {
+        cont.innerHTML = ""
+        cont.appendChild(createAboutElement())
+    })
 
-homeBtn.click()
+    return { homeBtn }
+} ()
+
+app.homeBtn.click()
